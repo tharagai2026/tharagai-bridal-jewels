@@ -1,64 +1,100 @@
-const API_URL =
-"https://script.google.com/macros/s/AKfycbz7HnYYOUsofS0M1G8Gj4BrgKZEKFTkR-vCMhorLY1I1mHvGAEHHCbUjyewtB3fnjeF/exec";
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tharagai Bridal Jewels</title>
 
-async function loadProducts() {
+    <link rel="stylesheet" href="style.css">
 
-    try {
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
 
-        const response = await fetch(API_URL);
-        const products = await response.json();
+<body>
 
-        const rentalContainer =
-            document.getElementById("rentalProducts");
+<header>
+    <div class="logo">
+        THARAGAI BRIDAL JEWELS
+    </div>
 
-        const purchaseContainer =
-            document.getElementById("purchaseProducts");
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#rent">Rentals</a>
+        <a href="#purchase">Purchase</a>
+        <a href="#explore">Explore</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
 
-        rentalContainer.innerHTML = "";
-        purchaseContainer.innerHTML = "";
+<section class="hero" id="home">
 
-        products.forEach(product => {
+    <div class="hero-content">
 
-            if (product.Status !== "Active") return;
+        <h1>Elegance You Can Wear</h1>
 
-            const card = document.createElement("div");
+        <p>
+            Premium Bridal Jewellery Rentals & Purchases
+        </p>
 
-            card.className = "card";
+        <div class="hero-buttons">
+            <a href="#rent" class="btn">Rent Collection</a>
+            <a href="#purchase" class="btn-outline">Purchase Collection</a>
+        </div>
 
-            let price = "";
+    </div>
 
-            if (product.Type === "RENT") {
-                price = `₹${product["Rental Price"]} / Rental`;
-            } else {
-                price = `₹${product["Purchase Price"]}`;
-            }
+</section>
 
-            card.innerHTML = `
-                <img src="${product["Thumbnail URL"]}" alt="${product["Product Name"]}">
-                <h3>${product["Product Name"]}</h3>
-                <p style="padding:0 20px 10px;text-align:center;">
-                    ${product.Description}
-                </p>
-                <p style="padding:0 20px 20px;text-align:center;font-weight:600;color:#D4AF37;">
-                    ${price}
-                </p>
-            `;
+<section class="section" id="rent">
 
-            if (product.Type === "RENT") {
-                rentalContainer.appendChild(card);
-            }
+    <h2>Rental Collection</h2>
 
-            if (product.Type === "BUY") {
-                purchaseContainer.appendChild(card);
-            }
+    <div id="rentalProducts" class="cards"></div>
 
-        });
+</section>
 
-    } catch(error) {
+<section class="section dark" id="purchase">
 
-        console.error("Error loading products:", error);
+    <h2>Purchase Collection</h2>
 
-    }
-}
+    <div id="purchaseProducts" class="cards"></div>
 
-loadProducts();
+</section>
+
+<section class="section" id="explore">
+
+    <h2>Explore Collection</h2>
+
+    <p class="center">
+        Discover our premium bridal jewellery collections.
+    </p>
+
+</section>
+
+<section class="contact" id="contact">
+
+    <h2>Connect With Us</h2>
+
+    <p>
+        Instagram: @tharagaibridel
+    </p>
+
+    <p>
+        Email: tharagaibridaljewel@gmail.com
+    </p>
+
+</section>
+
+<a
+href="https://wa.me/919000000000"
+class="whatsapp"
+target="_blank">
+💬
+</a>
+
+<script src="script.js"></script>
+
+</body>
+</html>
+```
