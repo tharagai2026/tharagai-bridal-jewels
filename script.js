@@ -1,4 +1,4 @@
-const API_URL = "https://script.google.com/macros/s/AKfycbz7HnYYOUsofS0M1G8Gj4BrgKZEKFTkR-vCMhorLY1I1mHvGAEHHCbUjyewtB3fnjeF/exec";
+const API_URL = "https://sheetdb.io/api/v1/5rewa63efh5wi?sheet=PRODUCTS";
 
 async function loadProducts() {
     try {
