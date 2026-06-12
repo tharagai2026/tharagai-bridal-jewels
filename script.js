@@ -63,17 +63,20 @@ async function loadProducts() {
                     ${price}
                 </p>
 
-                <button
-                    onclick="openGallery('${product["Product ID"]}')"
-                    style="
-                        margin-bottom:20px;
-                        padding:10px 20px;
-                        background:#D4AF37;
-                        border:none;
-                        cursor:pointer;
-                    ">
-                    View Gallery
-                </button>
+               <button
+    onclick="openGallery('${product["Product ID"]}')"
+    style="
+        margin-top:10px;
+        padding:12px 24px;
+        background:#D4AF37;
+        color:white;
+        border:none;
+        border-radius:30px;
+        cursor:pointer;
+        font-weight:600;
+    ">
+    View Gallery
+</button>
             `;
 
             if (product.Type === "RENT") {
