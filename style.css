@@ -31,12 +31,15 @@ header{
 }
 
 .logo{
-    font-family:'Playfair Display',serif;
-    font-size:24px;
-    font-weight:700;
-    color:#9B7A18;
+    display:flex;
+    align-items:center;
 }
 
+.logo img{
+    height:100px;
+    width:auto;
+    display:block;
+}
 nav a{
     text-decoration:none;
     margin-left:25px;
