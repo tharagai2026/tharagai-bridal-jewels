@@ -249,10 +249,10 @@ nav a:hover{
 }
 
 .gallery-image{
-    max-width:85%;
-    max-height:75%;
+    max-width:80%;
+    max-height:65vh;
     border-radius:15px;
-    box-shadow:0 0 30px rgba(255,255,255,0.2);
+    object-fit:contain;
 }
 
 .close-gallery{
@@ -265,7 +265,10 @@ nav a:hover{
 }
 
 .gallery-controls{
-    margin-top:20px;
+    margin-top:15px;
+    display:flex;
+    justify-content:center;
+    gap:15px;
 }
 
 .gallery-controls button{
@@ -310,4 +313,14 @@ nav a:hover{
     .cards{
         grid-template-columns:1fr;
     }
+}
+.whatsapp-enquiry{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 25px;
+    background:#25D366;
+    color:white;
+    text-decoration:none;
+    border-radius:30px;
+    font-weight:600;
 }
