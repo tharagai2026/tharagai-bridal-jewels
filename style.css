@@ -168,10 +168,11 @@ nav a:hover{
 .card{
     background:white;
     border-radius:20px;
-    overflow:hidden;
+    overflow:visible;
     box-shadow:0 10px 25px rgba(0,0,0,0.08);
     transition:.3s;
-    cursor:pointer;
+    text-align:center;
+    padding-bottom:25px;
 }
 
 .card:hover{
