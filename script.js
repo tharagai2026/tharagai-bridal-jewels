@@ -7,6 +7,7 @@ const GALLERY_API =
 let galleryData = [];
 let currentImages = [];
 let currentIndex = 0;
+let currentProductId = "";
 
 async function loadProducts() {
 
@@ -52,31 +53,36 @@ async function loadProducts() {
             }
 
             card.innerHTML = `
-                <img src="${product["Thumbnail URL"]}">
+                <img src="${product["Thumbnail URL"]}" alt="${product["Product Name"]}">
+
                 <h3>${product["Product Name"]}</h3>
 
                 <p style="padding:0 20px 10px;text-align:center;">
-                    ${product.Description}
+                    ${product.Description || ""}
                 </p>
 
-                <p style="padding:0 20px 20px;text-align:center;font-weight:600;color:#D4AF37;">
+                <p style="
+                    padding:0 20px 20px;
+                    text-align:center;
+                    font-weight:600;
+                    color:#D4AF37;">
                     ${price}
                 </p>
 
-               <button
-    onclick="openGallery('${product["Product ID"]}')"
-    style="
-        margin-top:10px;
-        padding:12px 24px;
-        background:#D4AF37;
-        color:white;
-        border:none;
-        border-radius:30px;
-        cursor:pointer;
-        font-weight:600;
-    ">
-    View Gallery
-</button>
+                <button
+                    onclick="openGallery('${product["Product ID"]}')"
+                    style="
+                        margin-top:10px;
+                        padding:12px 24px;
+                        background:#D4AF37;
+                        color:white;
+                        border:none;
+                        border-radius:30px;
+                        cursor:pointer;
+                        font-weight:600;
+                    ">
+                    View Gallery
+                </button>
             `;
 
             if (product.Type === "RENT") {
@@ -93,22 +99,18 @@ async function loadProducts() {
 
     } catch(error) {
 
-        console.error(error);
+        console.error("Error loading products:", error);
 
     }
 }
 
 function openGallery(productId){
 
+    currentProductId = productId;
+
     currentImages = galleryData
-        .filter(
-            item =>
-            item["Product ID"] === productId
-        )
-        .map(
-            item =>
-            item["Image URL"]
-        );
+        .filter(item => item["Product ID"] === productId)
+        .map(item => item["Image URL"]);
 
     if(currentImages.length === 0){
 
@@ -119,13 +121,13 @@ function openGallery(productId){
 
     currentIndex = 0;
 
-    document.getElementById(
-        "galleryModal"
-    ).style.display = "flex";
+    document.getElementById("galleryModal").style.display = "flex";
 
-    document.getElementById(
-        "galleryImage"
-    ).src = currentImages[currentIndex];
+    document.getElementById("galleryImage").src =
+        currentImages[currentIndex];
+
+    document.getElementById("whatsappBtn").href =
+        `https://wa.me/919000000000?text=Hi, I am interested in Product ${productId}`;
 }
 
 document
@@ -140,9 +142,8 @@ document
 
     }
 
-    document.getElementById(
-        "galleryImage"
-    ).src = currentImages[currentIndex];
+    document.getElementById("galleryImage").src =
+        currentImages[currentIndex];
 
 });
 
@@ -154,14 +155,12 @@ document
 
     if(currentIndex < 0){
 
-        currentIndex =
-            currentImages.length - 1;
+        currentIndex = currentImages.length - 1;
 
     }
 
-    document.getElementById(
-        "galleryImage"
-    ).src = currentImages[currentIndex];
+    document.getElementById("galleryImage").src =
+        currentImages[currentIndex];
 
 });
 
@@ -169,9 +168,19 @@ document
 .querySelector(".close-gallery")
 .addEventListener("click", () => {
 
-    document.getElementById(
-        "galleryModal"
-    ).style.display = "none";
+    document.getElementById("galleryModal").style.display = "none";
+
+});
+
+window.addEventListener("click", function(event){
+
+    const modal = document.getElementById("galleryModal");
+
+    if(event.target === modal){
+
+        modal.style.display = "none";
+
+    }
 
 });
 
