@@ -8,13 +8,16 @@ let galleryData = [];
 let currentImages = [];
 let currentIndex = 0;
 let currentProductId = "";
+let currentProductName = "";
+let productsData = [];
 
 async function loadProducts() {
 
     try {
 
         const productResponse = await fetch(PRODUCTS_API);
-        const products = await productResponse.json();
+        productsData = await productResponse.json();
+        const products = productsData;
 
         const galleryResponse = await fetch(GALLERY_API);
         galleryData = await galleryResponse.json();
@@ -108,6 +111,12 @@ function openGallery(productId){
 
     currentProductId = productId;
 
+const productInfo = productsData.find(
+    p => p["Product ID"] === productId
+);
+
+currentProductName =
+    productInfo?.["Product Name"] || productId;
     currentImages = galleryData
         .filter(item => item["Product ID"] === productId)
         .map(item => item["Image URL"]);
@@ -126,8 +135,24 @@ function openGallery(productId){
     document.getElementById("galleryImage").src =
         currentImages[currentIndex];
 
-    document.getElementById("whatsappBtn").href =
-        `https://wa.me/919000000000?text=Hi, I am interested in Product ${productId}`;
+   const whatsappMessage =
+`Hi Tharagai Bridal Jewels,
+
+I am interested in:
+
+Product: ${currentProductName}
+Product ID: ${productId}
+
+Please share:
+
+• Availability
+• Pricing Details
+• Booking Process
+
+Thank you.`;
+
+document.getElementById("whatsappBtn").href =
+`https://wa.me/919000000000?text=${encodeURIComponent(whatsappMessage)}`;
 }
 
 document
