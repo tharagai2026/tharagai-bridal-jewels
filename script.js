@@ -117,6 +117,30 @@ const productInfo = productsData.find(
 
 currentProductName =
     productInfo?.["Product Name"] || productId;
+    document.getElementById("popupTitle").innerText =
+    productInfo["Product Name"];
+
+let popupPrice = "";
+
+if(productInfo.Type === "RENT"){
+
+    popupPrice =
+        "Rental ₹" +
+        productInfo["Rental Price"];
+
+}else{
+
+    popupPrice =
+        "Purchase ₹" +
+        productInfo["Purchase Price"];
+
+}
+
+document.getElementById("popupPrice").innerText =
+    popupPrice;
+
+document.getElementById("popupDescription").innerText =
+    productInfo.Description || "";
     currentImages = galleryData
         .filter(item => item["Product ID"] === productId)
         .map(item => item["Image URL"]);
