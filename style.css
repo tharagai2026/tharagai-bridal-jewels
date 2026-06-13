@@ -249,10 +249,12 @@ nav a:hover{
 }
 
 .gallery-image{
-    max-width:80%;
+    max-width:700px;
+    width:100%;
     max-height:65vh;
     border-radius:15px;
     object-fit:contain;
+    box-shadow:0 0 40px rgba(212,175,55,.35);
 }
 
 .close-gallery{
@@ -314,10 +316,36 @@ nav a:hover{
         grid-template-columns:1fr;
     }
 }
+.gallery-content{
+    text-align:center;
+    color:white;
+    max-width:900px;
+    padding:20px;
+}
+
+#popupTitle{
+    font-size:40px;
+    letter-spacing:1px;
+    color:#D4AF37;
+    font-family:'Playfair Display',serif;
+    margin-bottom:10px;
+}
+
+#popupPrice{
+    font-size:22px;
+    font-weight:600;
+    margin-bottom:10px;
+}
+
+#popupDescription{
+    margin-bottom:20px;
+    color:#ddd;
+}
+
 .whatsapp-enquiry{
     display:inline-block;
     margin-top:20px;
-    padding:12px 25px;
+    padding:14px 28px;
     background:#25D366;
     color:white;
     text-decoration:none;
