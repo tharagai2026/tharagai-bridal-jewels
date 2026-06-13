@@ -249,12 +249,10 @@ nav a:hover{
 }
 
 .gallery-image{
-    max-width:700px;
-    width:100%;
-    max-height:65vh;
+    max-width:70%;
+    max-height:40vh;
     border-radius:15px;
     object-fit:contain;
-    box-shadow:0 0 40px rgba(212,175,55,.35);
 }
 
 .close-gallery{
@@ -320,7 +318,8 @@ nav a:hover{
     text-align:center;
     color:white;
     max-width:900px;
-    padding:20px;
+    max-height:95vh;
+    overflow-y:auto;
 }
 
 #popupTitle{
