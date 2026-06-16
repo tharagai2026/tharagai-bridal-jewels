@@ -249,22 +249,31 @@ nav a:hover{
 }
 
 .gallery-image{
-    max-width:70%;
-    max-height:45vh;
+    max-width:60%;
+    max-height:42vh;
+
     object-fit:contain;
 
-    border:4px solid #D4AF37;
+    border:6px solid #D4AF37;
     border-radius:20px;
 
-    background:#111;
-    padding:8px;
+    padding:10px;
+    background:#000;
 
     box-shadow:
-        0 0 20px #D4AF37,
-        0 0 40px rgba(212,175,55,.8),
-        0 0 60px rgba(212,175,55,.5);
+        0 0 15px #D4AF37,
+        0 0 30px #D4AF37,
+        0 0 60px #D4AF37,
+        0 0 100px rgba(212,175,55,0.8);
 }
-
+.gallery-content{
+    background:#111;
+    border:2px solid #D4AF37;
+    border-radius:25px;
+    padding:25px;
+    box-shadow:
+        0 0 20px rgba(212,175,55,.5);
+}
 .close-gallery{
     position:absolute;
     top:20px;
