@@ -27,9 +27,15 @@ async function loadProducts() {
 
         const purchaseContainer =
             document.getElementById("purchaseProducts");
+        const featuredContainer =
+            document.getElementById("featuredProducts");
 
         rentalContainer.innerHTML = "";
-        purchaseContainer.innerHTML = "";
+purchaseContainer.innerHTML = "";
+
+if(featuredContainer){
+    featuredContainer.innerHTML = "";
+}
 
         products.forEach(product => {
 
