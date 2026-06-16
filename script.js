@@ -94,15 +94,34 @@ if(featuredContainer){
                 </button>
             `;
 
-            if (product.Type === "RENT") {
+            if (
+    product.Featured &&
+    product.Featured.toUpperCase() === "YES"
+) {
 
-                rentalContainer.appendChild(card);
+    const featuredCard =
+        card.cloneNode(true);
 
-            } else {
+    featuredCard.classList.add(
+        "featured-card"
+    );
 
-                purchaseContainer.appendChild(card);
+    if(featuredContainer){
+        featuredContainer.appendChild(
+            featuredCard
+        );
+    }
+}
 
-            }
+if (product.Type === "RENT") {
+
+    rentalContainer.appendChild(card);
+
+} else {
+
+    purchaseContainer.appendChild(card);
+
+}
 
         });
 
