@@ -266,14 +266,7 @@ nav a:hover{
         0 0 60px #D4AF37,
         0 0 100px rgba(212,175,55,0.8);
 }
-.gallery-content{
-    background:#111;
-    border:2px solid #D4AF37;
-    border-radius:25px;
-    padding:25px;
-    box-shadow:
-        0 0 20px rgba(212,175,55,.5);
-}
+
 .close-gallery{
     position:absolute;
     top:20px;
@@ -378,4 +371,13 @@ nav a:hover{
     text-decoration:none;
     border-radius:30px;
     font-weight:600;
+}
+.featured-section{
+    background:#faf5eb;
+}
+
+.featured-card{
+    border:2px solid #D4AF37;
+    box-shadow:
+        0 0 20px rgba(212,175,55,.4);
 }
