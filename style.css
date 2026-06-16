@@ -250,7 +250,7 @@ nav a:hover{
 
 .gallery-image{
     max-width:60%;
-    max-height:42vh;
+    max-height:38vh;
 
     object-fit:contain;
 
@@ -337,12 +337,21 @@ nav a:hover{
     text-align:center;
     color:white;
     max-width:900px;
-    max-height:95vh;
-    overflow-y:auto;
+
+    background:#111;
+    border:2px solid #D4AF37;
+    border-radius:25px;
+
+    padding:25px;
+
+    box-shadow:
+        0 0 20px rgba(212,175,55,.5);
+
+    overflow:hidden;
 }
 
 #popupTitle{
-    font-size:40px;
+    font-size:32px;
     letter-spacing:1px;
     color:#D4AF37;
     font-family:'Playfair Display',serif;
