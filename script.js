@@ -94,7 +94,7 @@ if(featuredContainer){
                 </button>
             `;
 
-            if (
+           if (
     product.Featured &&
     product.Featured.toUpperCase() === "YES"
 ) {
@@ -106,13 +106,30 @@ if(featuredContainer){
         "featured-card"
     );
 
+    const featuredBtn =
+        featuredCard.querySelector("button");
+
+    if(featuredBtn){
+
+        featuredBtn.onclick = function(){
+
+            openGallery(
+                product["Product ID"]
+            );
+
+        };
+
+    }
+
     if(featuredContainer){
+
         featuredContainer.appendChild(
             featuredCard
         );
-    }
-}
 
+    }
+
+}
 if (product.Type === "RENT") {
 
     rentalContainer.appendChild(card);
